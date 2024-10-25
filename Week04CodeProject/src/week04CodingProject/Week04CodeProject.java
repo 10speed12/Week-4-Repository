@@ -1,4 +1,5 @@
 package week04CodingProject;
+import c
 
 public class Week04CodeProject {
 	public static void main(String[] args) {
@@ -251,8 +252,8 @@ public class Week04CodeProject {
 	private static String intToRoman(int num) {
 		// Confirm that entered number is between 1 and 3999, inclusive:
         if (num > 0 && num < 4000) {
-			// Initialize a string variable to store all the numerals in:
-			String roman = "";
+			// Initialize a StringBuilder variable to store all the numerals in:
+			StringBuilder roman = new StringBuilder();
 			// Set up loop to decrease the value of num and add numerals to the string as needed until 
 			// num equals 0:
 			while (num != 0) {
@@ -262,26 +263,26 @@ public class Week04CodeProject {
 					for (int i = 0; i < num / 1000; i++) {
 						// Perform a for loop that will add as many M's to the numeral string as
 						// the value in the thousands place digit in num:
-						roman += "M";
+						roman.append("M");
 					}
 					// Set num to be equal to the remainder of num divided by 1000:
 					num = num % 1000;
 				} else if (num > 899 && num <= 999) {
 					// Case if current value of num is between 900 and 999:
 					// Add CM to the numeral string:
-					roman += "CM";
+					roman.append("CM");
 					// Set num to be equal to the remainder of num divided by 900:
 					num = num % 900;
 				} else if (num > 499 && num <= 899) {
 					// Case if current value of num is between 500 and 899:
 					// Add 'D' to the numeral string:
-					roman += "D";
+					roman.append("D");
 					// Set num to be equal to the remainder of num divided by 500:
 					num = num % 500;
 				} else if (num > 399 && num <= 499) {
 					// Case if current value of num is between 400 and 499:
 					// Add 'CD' to the numeral string:
-					roman += "CD";
+					roman.append("CD");
 					// Set num to be equal to the remainder of num divided by 400:
 					num = num % 400;
 				} else if (num > 99 && num <= 399) {
@@ -289,26 +290,26 @@ public class Week04CodeProject {
 					for (int i = 0; i < num / 100; i++) {
 						// Perform a for loop that will add as many C's to the numeral string as
 						// the value of the current digit in the hunderd's place in num:
-						roman += "C";
+						roman.append("C");
 					}
 					// Set num to be equal to the remainder of num divided by 100:
 					num = num % 100;
 				} else if (num > 89 && num <= 99) {
 					// Case if current value of num is between 90 and 99:
 					// Add 'XC' to the numeral string:
-					roman += "XC";
+					roman.append("XC");
 					// Set num to be equal to the remainder of num divided by 90:
 					num = num % 90;
 				} else if (num > 49 && num <= 89) {
 					// Case if current value of num is between 50 and 89:
 					// Add 'L' to the numeral string:
-					roman += "L";
+					roman.append("L");
 					// Set num to be equal to the remainder of num divided by 50:
 					num = num % 50;
 				} else if (num > 39 && num <= 49) {
 					// Case if current value of num is between 40 and 49:
 					// Add 'XL' to the numeral string:
-					roman += "XL";
+					roman.append("XL");
 					// Set num to be equal to the remainder of num divided by 40:
 					num = num % 40;
 				} else if (num > 9 && num <= 39) {
@@ -316,26 +317,26 @@ public class Week04CodeProject {
 					for (int i = 0; i < num / 10; i++) {
 						// Perform a for loop that will add as many x's to the numeral string as
 						// the value of the current digit in the hunderd's place in num:
-						roman += "X";
+						roman.append("X");
 					}
 					// Set num to be equal to the remainder of num divided by 10:
 					num = num % 10;
 				} else if (num == 9) {
 					// If current value of num is nine:
 					// Add 'IX' to numeral string:
-					roman += "IX";
+					roman.append("IX");
 					// Subtract nine from num:
 					num -= 9;
 				} else if (num > 4 && num <= 8) {
 					// If current value of num is greater than 4 and less than or equal to 8:
 					// Add "V" to the numeral string:
-					roman += "V";
+					roman.append("V");
 					// Subtract 5 from num:
 					num -= 5;
 				} else if (num == 4) {
 					// If current value of num is 4:
 					// Add "IV" to the numeral string:
-					roman += "IV";
+					roman.append("IV");
 					// Subtract 4 from num:
 					num -= 4;
 				} else if (num > 0 && num < 4) {
@@ -345,7 +346,7 @@ public class Week04CodeProject {
 					// Set up for-loop that repeats initial num-value times:
 					for (int i = 0; i < temp; i++) {
 						// Add an "I" to numeral string:
-						roman += "I";
+						roman.append("I");
 						// Decrement num:
 						num--;
 					}
@@ -354,7 +355,7 @@ public class Week04CodeProject {
 					return "Error. Num decremented below 0.";
 				}
 			}
-			return roman;
+			return roman.toString();
 		} else {
 			// Error handling if a value less than or equal to 0, or greater than 3999 is entered:
 			return "Error. " + num + " is not between 1 and 3999.";
